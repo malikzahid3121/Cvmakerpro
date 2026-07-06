@@ -1,6 +1,7 @@
 package com.cvmakerpro.app;
 
 import androidx.appcompat.app.AppCompatActivity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -23,10 +24,14 @@ public class MainActivity extends AppCompatActivity {
 
         btnNext.setOnClickListener(v -> {
             String name = etName.getText().toString();
-            if(name.isEmpty()){
-                Toast.makeText(this, "Please enter your name", Toast.LENGTH_SHORT).show();
+            String email = etEmail.getText().toString();
+            String phone = etPhone.getText().toString();
+
+            if(name.isEmpty() || email.isEmpty() || phone.isEmpty()){
+                Toast.makeText(this, "Please fill all fields", Toast.LENGTH_SHORT).show();
             } else {
-                Toast.makeText(this, "Welcome " + name, Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(MainActivity.this, EducationActivity.class);
+                startActivity(intent);
             }
         });
     }

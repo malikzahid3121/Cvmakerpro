@@ -31,6 +31,9 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(this, "Please fill all fields", Toast.LENGTH_SHORT).show();
             } else {
                 Intent intent = new Intent(MainActivity.this, EducationActivity.class);
+                intent.putExtra("NAME", name);
+                intent.putExtra("EMAIL", email);
+                intent.putExtra("PHONE", phone);
                 startActivity(intent);
             }
         });

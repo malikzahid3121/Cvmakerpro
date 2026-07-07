@@ -1,2 +1,2 @@
-rootProject.name = "Cvmakerpro"
+rootProject.name = "cvmakerpro"
 include ':app'

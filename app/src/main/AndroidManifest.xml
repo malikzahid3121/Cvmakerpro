@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest package="com.cvmakerpro"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.cvmakerpro">
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="CVMakerPro"
-        android:theme="@style/Theme.CVMakerPro">
+        android:theme="@style/Theme.CVMakerPro"
+        android:supportsRtl="true">
+        
         <activity
             android:name=".MainActivity"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/Theme.CVMakerPro">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

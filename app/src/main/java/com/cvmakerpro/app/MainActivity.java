@@ -1,7 +1,5 @@
 package com.cvmakerpro.app;
 
-import android.Manifest;
-import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Environment;
 import android.widget.Button;
@@ -9,13 +7,12 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 
 import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.layout.Document;
 import com.itextpdf.layout.element.Paragraph;
+import com.itextpdf.layout.property.TextAlignment;
 
 import java.io.File;
 
@@ -40,14 +37,22 @@ public class MainActivity extends AppCompatActivity {
         btnDownload.setOnClickListener(v -> createPDF());
     }
 
+
     private void createPDF() {
 
         String name = etName.getText().toString().trim();
+        String email = etEmail.getText().toString().trim();
+        String phone = etPhone.getText().toString().trim();
+        String education = etEducation.getText().toString().trim();
+        String experience = etExperience.getText().toString().trim();
+        String skills = etSkills.getText().toString().trim();
+
 
         if (name.isEmpty()) {
-            Toast.makeText(this, "Please enter Full Name", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Please enter name", Toast.LENGTH_SHORT).show();
             return;
         }
+
 
         try {
 
@@ -57,32 +62,69 @@ public class MainActivity extends AppCompatActivity {
 
             File file = new File(path, "CV_" + name + ".pdf");
 
+
             PdfWriter writer = new PdfWriter(file);
-            PdfDocument pdf = new PdfDocument(writer);
-            Document document = new Document(pdf);
+            PdfDocument pdfDocument = new PdfDocument(writer);
+            Document document = new Document(pdfDocument);
 
-            document.add(new Paragraph(name)
+
+            Paragraph title = new Paragraph("CURRICULUM VITAE")
                     .setBold()
-                    .setFontSize(24));
+                    .setFontSize(22)
+                    .setTextAlignment(TextAlignment.CENTER);
 
-            document.add(new Paragraph("Email: " + etEmail.getText().toString()));
-            document.add(new Paragraph("Phone: " + etPhone.getText().toString()));
+            document.add(title);
 
-            document.add(new Paragraph("EDUCATION"));
-            document.add(new Paragraph(etEducation.getText().toString()));
 
-            document.add(new Paragraph("EXPERIENCE"));
-            document.add(new Paragraph(etExperience.getText().toString()));
+            document.add(new Paragraph("\n" + name)
+                    .setBold()
+                    .setFontSize(18));
 
-            document.add(new Paragraph("SKILLS"));
-            document.add(new Paragraph(etSkills.getText().toString()));
+
+            document.add(new Paragraph("Email: " + email));
+            document.add(new Paragraph("Phone: " + phone));
+
+
+            document.add(new Paragraph("\nEDUCATION")
+                    .setBold()
+                    .setFontSize(15));
+
+            document.add(new Paragraph(education));
+
+
+            document.add(new Paragraph("\nWORK EXPERIENCE")
+                    .setBold()
+                    .setFontSize(15));
+
+            document.add(new Paragraph(experience));
+
+
+            document.add(new Paragraph("\nSKILLS")
+                    .setBold()
+                    .setFontSize(15));
+
+            document.add(new Paragraph(skills));
+
 
             document.close();
 
-            Toast.makeText(this, "PDF Created Successfully", Toast.LENGTH_LONG).show();
+
+            Toast.makeText(
+                    this,
+                    "Professional CV PDF Created",
+                    Toast.LENGTH_LONG
+            ).show();
+
 
         } catch (Exception e) {
-            Toast.makeText(this, e.getMessage(), Toast.LENGTH_LONG).show();
+
+            Toast.makeText(
+                    this,
+                    "Error: " + e.getMessage(),
+                    Toast.LENGTH_LONG
+            ).show();
+
         }
+
     }
 }

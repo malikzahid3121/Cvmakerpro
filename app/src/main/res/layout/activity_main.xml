@@ -19,8 +19,7 @@
             android:textSize="30sp"
             android:textStyle="bold"
             android:textColor="@color/primary_blue"
-            android:gravity="center"
-            android:layout_marginBottom="8dp"/>
+            android:gravity="center"/>
 
 
         <TextView
@@ -38,8 +37,8 @@
             android:hint="Full Name"
             android:layout_width="match_parent"
             android:layout_height="55dp"
+            android:background="@drawable/edittext_background"
             android:padding="15dp"
-            android:background="@android:drawable/edit_text"
             android:layout_marginBottom="12dp"/>
 
 
@@ -49,8 +48,8 @@
             android:inputType="textEmailAddress"
             android:layout_width="match_parent"
             android:layout_height="55dp"
+            android:background="@drawable/edittext_background"
             android:padding="15dp"
-            android:background="@android:drawable/edit_text"
             android:layout_marginBottom="12dp"/>
 
 
@@ -60,8 +59,8 @@
             android:inputType="phone"
             android:layout_width="match_parent"
             android:layout_height="55dp"
+            android:background="@drawable/edittext_background"
             android:padding="15dp"
-            android:background="@android:drawable/edit_text"
             android:layout_marginBottom="12dp"/>
 
 
@@ -72,8 +71,8 @@
             android:gravity="top"
             android:layout_width="match_parent"
             android:layout_height="90dp"
+            android:background="@drawable/edittext_background"
             android:padding="15dp"
-            android:background="@android:drawable/edit_text"
             android:layout_marginBottom="12dp"/>
 
 
@@ -84,8 +83,8 @@
             android:gravity="top"
             android:layout_width="match_parent"
             android:layout_height="90dp"
+            android:background="@drawable/edittext_background"
             android:padding="15dp"
-            android:background="@android:drawable/edit_text"
             android:layout_marginBottom="12dp"/>
 
 
@@ -96,8 +95,8 @@
             android:gravity="top"
             android:layout_width="match_parent"
             android:layout_height="80dp"
+            android:background="@drawable/edittext_background"
             android:padding="15dp"
-            android:background="@android:drawable/edit_text"
             android:layout_marginBottom="20dp"/>
 
 

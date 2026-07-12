@@ -1,10 +1,10 @@
 package com.cvmakerpro.app;
 
-import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class EducationActivity extends AppCompatActivity {
 
@@ -26,12 +26,13 @@ public class EducationActivity extends AppCompatActivity {
             String university = etUniversity.getText().toString().trim();
             String year = etYear.getText().toString().trim();
 
-            if (degree.isEmpty() || university.isEmpty() || year.isEmpty()) {
-                Toast.makeText(EducationActivity.this, "Please fill all fields", Toast.LENGTH_SHORT).show();
-            } else {
-                Toast.makeText(EducationActivity.this, "Education Saved Successfully", Toast.LENGTH_LONG).show();
-                finish();
+            if(degree.isEmpty() || university.isEmpty()){
+                Toast.makeText(this, "Please fill all fields", Toast.LENGTH_SHORT).show();
+                return;
             }
+
+            Toast.makeText(this, "Saved: " + degree + " from " + university, Toast.LENGTH_LONG).show();
+            
         });
     }
 }

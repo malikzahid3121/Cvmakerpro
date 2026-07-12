@@ -1,81 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true"
-    tools:context=".EducationActivity">
+    android:background="#F5F5F5"
+    android:padding="16dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp">
+        android:orientation="vertical">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Education Details"
-            android:textSize="20sp"
+            android:textSize="24sp"
             android:textStyle="bold"
-            android:layout_marginBottom="16dp"/>
+            android:textColor="#1976D2"
+            android:gravity="center"
+            android:layout_marginBottom="20dp"/>
 
-        <com.google.android.material.textfield.TextInputLayout
+        <EditText
+            android:id="@+id/etDegree"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="12dp"
-            android:hint="Degree / Course Name">
+            android:hint="Degree - BS Computer Science"
+            android:padding="14dp"
+            android:background="@android:drawable/edit_text"
+            android:layout_marginBottom="12dp"/>
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etDegree"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
+        <EditText
+            android:id="@+id/etUniversity"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="12dp"
-            android:hint="University / School Name">
+            android:hint="University - UET Lahore"
+            android:padding="14dp"
+            android:background="@android:drawable/edit_text"
+            android:layout_marginBottom="12dp"/>
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etUniversity"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
+        <EditText
+            android:id="@+id/etYear"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="12dp"
-            android:hint="CGPA or Percentage">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etCgpa"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="12dp"
-            android:hint="Start Year - End Year">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etYear"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-        </com.google.android.material.textfield.TextInputLayout>
+            android:hint="Passing Year - 2024"
+            android:inputType="number"
+            android:padding="14dp"
+            android:background="@android:drawable/edit_text"
+            android:layout_marginBottom="12dp"/>
 
         <Button
             android:id="@+id/btnNextEdu"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Next"
-            android:layout_marginTop="16dp"/>
+            android:layout_height="55dp"
+            android:text="Save &amp; Next"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:backgroundTint="#1976D2"
+            android:layout_marginTop="20dp"/>
 
     </LinearLayout>
-
 </ScrollView>

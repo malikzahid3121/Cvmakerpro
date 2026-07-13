@@ -15,10 +15,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="CV Preview"
-            android:textStyle="bold"
             android:textSize="24sp"
+            android:textStyle="bold"
             android:textColor="#1F2937"
-            android:layout_marginBottom="16dp" />
+            android:layout_marginBottom="16dp"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -35,9 +35,23 @@
                 android:textColor="#222222"
                 android:textSize="16sp"
                 android:lineSpacingExtra="8dp"
-                android:textIsSelectable="true" />
+                android:textIsSelectable="true"/>
 
         </LinearLayout>
+
+        <Button
+            android:id="@+id/btnExportPdf"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="📄 Export PDF"
+            android:layout_marginTop="20dp"/>
+
+        <Button
+            android:id="@+id/btnShare"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="📤 Share CV"
+            android:layout_marginTop="12dp"/>
 
     </LinearLayout>
 

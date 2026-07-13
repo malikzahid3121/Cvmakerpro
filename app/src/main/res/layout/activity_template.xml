@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:background="#EEF2F7">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Choose CV Template"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="#1F2937"
+        android:layout_marginBottom="30dp"/>
+
+
+    <Button
+        android:id="@+id/btnModern"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Modern Template"
+        android:layout_marginBottom="15dp"/>
+
+
+    <Button
+        android:id="@+id/btnClassic"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Classic Template"
+        android:layout_marginBottom="15dp"/>
+
+
+    <Button
+        android:id="@+id/btnSimple"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Simple Template"/>
+
+</LinearLayout>

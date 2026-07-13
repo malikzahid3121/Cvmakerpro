@@ -1,12 +1,17 @@
 package com.cvmakerpro.app;
 
 import android.content.Intent;
+import android.graphics.pdf.PdfDocument;
 import android.os.Bundle;
+import android.os.Environment;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import java.io.File;
+import java.io.FileOutputStream;
 
 public class PreviewActivity extends AppCompatActivity {
 
@@ -39,36 +44,28 @@ public class PreviewActivity extends AppCompatActivity {
         if (skills == null) skills = "";
 
         cvText =
-                "══════════════════════════════\n" +
-                "        CV MAKER PRO\n" +
-                "   PROFESSIONAL RESUME\n" +
-                "══════════════════════════════\n\n" +
+                "CV MAKER PRO\n\n" +
+                "PERSONAL INFORMATION\n\n" +
+                "Name: " + name + "\n" +
+                "Email: " + email + "\n" +
+                "Phone: " + phone + "\n\n" +
 
-                "👤 PERSONAL INFORMATION\n\n" +
-                "Name\n" + name + "\n\n" +
-                "Email\n" + email + "\n\n" +
-                "Phone\n" + phone + "\n\n" +
-
-                "🎓 EDUCATION\n\n" +
+                "EDUCATION\n\n" +
                 education + "\n\n" +
 
-                "💼 WORK EXPERIENCE\n\n" +
+                "WORK EXPERIENCE\n\n" +
                 experience + "\n\n" +
 
-                "🛠 SKILLS\n\n" +
+                "SKILLS\n\n" +
                 skills + "\n\n" +
 
-                "══════════════════════════════\n" +
                 "Generated with CVMakerPro";
+
 
         tvPreview.setText(cvText);
 
 
-        btnExportPdf.setOnClickListener(v -> {
-            Toast.makeText(this,
-                    "PDF Export Feature Next Step",
-                    Toast.LENGTH_SHORT).show();
-        });
+        btnExportPdf.setOnClickListener(v -> createPDF());
 
 
         btnShare.setOnClickListener(v -> {
@@ -77,9 +74,73 @@ public class PreviewActivity extends AppCompatActivity {
             shareIntent.setType("text/plain");
             shareIntent.putExtra(Intent.EXTRA_TEXT, cvText);
 
-            startActivity(
-                    Intent.createChooser(shareIntent, "Share CV")
-            );
+            startActivity(Intent.createChooser(
+                    shareIntent,
+                    "Share CV"
+            ));
         });
+    }
+
+
+    private void createPDF() {
+
+        try {
+
+            PdfDocument document = new PdfDocument();
+
+            PdfDocument.PageInfo pageInfo =
+                    new PdfDocument.PageInfo.Builder(
+                            595,
+                            842,
+                            1
+                    ).create();
+
+
+            PdfDocument.Page page =
+                    document.startPage(pageInfo);
+
+
+            page.getCanvas().drawText(
+                    cvText,
+                    40,
+                    60,
+                    new android.graphics.Paint()
+            );
+
+
+            document.finishPage(page);
+
+
+            File file = new File(
+                    getExternalFilesDir(Environment.DIRECTORY_DOCUMENTS),
+                    "CVMakerPro_CV.pdf"
+            );
+
+
+            FileOutputStream output =
+                    new FileOutputStream(file);
+
+
+            document.writeTo(output);
+
+            document.close();
+            output.close();
+
+
+            Toast.makeText(
+                    this,
+                    "PDF Created Successfully",
+                    Toast.LENGTH_LONG
+            ).show();
+
+
+        } catch (Exception e) {
+
+            Toast.makeText(
+                    this,
+                    "PDF Error: " + e.getMessage(),
+                    Toast.LENGTH_LONG
+            ).show();
+        }
     }
 }

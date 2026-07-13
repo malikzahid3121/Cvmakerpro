@@ -1,13 +1,19 @@
 package com.cvmakerpro.app;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class PreviewActivity extends AppCompatActivity {
 
     private TextView tvPreview;
+    private Button btnExportPdf, btnShare;
+
+    private String cvText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -15,6 +21,8 @@ public class PreviewActivity extends AppCompatActivity {
         setContentView(R.layout.activity_preview);
 
         tvPreview = findViewById(R.id.tvPreview);
+        btnExportPdf = findViewById(R.id.btnExportPdf);
+        btnShare = findViewById(R.id.btnShare);
 
         String name = getIntent().getStringExtra("name");
         String email = getIntent().getStringExtra("email");
@@ -30,7 +38,7 @@ public class PreviewActivity extends AppCompatActivity {
         if (experience == null) experience = "";
         if (skills == null) skills = "";
 
-        String cv =
+        cvText =
                 "══════════════════════════════\n" +
                 "        CV MAKER PRO\n" +
                 "   PROFESSIONAL RESUME\n" +
@@ -53,6 +61,25 @@ public class PreviewActivity extends AppCompatActivity {
                 "══════════════════════════════\n" +
                 "Generated with CVMakerPro";
 
-        tvPreview.setText(cv);
+        tvPreview.setText(cvText);
+
+
+        btnExportPdf.setOnClickListener(v -> {
+            Toast.makeText(this,
+                    "PDF Export Feature Next Step",
+                    Toast.LENGTH_SHORT).show();
+        });
+
+
+        btnShare.setOnClickListener(v -> {
+
+            Intent shareIntent = new Intent(Intent.ACTION_SEND);
+            shareIntent.setType("text/plain");
+            shareIntent.putExtra(Intent.EXTRA_TEXT, cvText);
+
+            startActivity(
+                    Intent.createChooser(shareIntent, "Share CV")
+            );
+        });
     }
 }

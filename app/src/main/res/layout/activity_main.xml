@@ -104,6 +104,15 @@
 
 
         <Button
+            android:id="@+id/btnTemplate"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:text="Choose CV Template"
+            android:textSize="16sp"
+            android:layout_marginBottom="12dp"/>
+
+
+        <Button
 
             android:id="@+id/btnDownload"
             android:layout_width="match_parent"
